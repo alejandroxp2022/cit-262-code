@@ -54,7 +54,6 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
                style={styles.sendButton}
               onPress={async ()=>{
                console.log(phoneNumber+' Button was pressed')
-               //console.log( 'Hello Alejandro!')
     
                 const sendTextResponse=await fetch(
                   'https://dev.stedi.me/twofactorlogin/'+phoneNumber,
@@ -67,7 +66,8 @@ const Login = ({loggedInState, loggedInStates,setLoggedInState})=>{
                 )
                 const sendTextResponseData = await sendTextResponse.text();
                 if(sendTextResponse.status!=200){//invalid phone number, send them to the signup page
-                  await Alert.alert("Did you type your number correctly Alejandro? "+phoneNumber);
+                  //await Alert.alert("Did you type your number correctly?  "+phoneNumber);
+                  await Alert.alert("Hello Alejandro!"+phoneNumber);
                 } else{
                   setLoggedInState(loggedInStates.LOGGING_IN);
                   Alert.alert('Hello Alejandro'+phoneNumber);
